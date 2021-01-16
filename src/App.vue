@@ -134,7 +134,9 @@ export default {
             > 
           </div>
            <input v-if="taskItem.edit" type="text" v-model="taskItem.label" class="task-list-edit-input" />
-            <p v-else class="task-list-text"> 
+            <p v-else class="task-list-text" 
+            :class="taskItem.complete ? 'is-complete' : ''"
+            > 
             {{ taskItem.label }}
               </p> 
              
@@ -225,6 +227,11 @@ fill: #0728bf;
   flex: 1;
   border: 0;
   font-size: 16px;
+}
+
+.task-list-text.is-complete {
+  color: #6b6b6b;
+  text-decoration: line-through;
 }
 
 .tab-wrapper {
